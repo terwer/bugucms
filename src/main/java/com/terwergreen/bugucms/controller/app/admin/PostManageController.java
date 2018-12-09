@@ -1,25 +1,17 @@
 package com.terwergreen.bugucms.controller.app.admin;
 
-import com.alibaba.fastjson.JSON;
-import com.github.pagehelper.PageInfo;
 import com.terwergreen.bugucms.base.controller.AdminBaseController;
 import com.terwergreen.bugucms.dto.PostDTO;
 import com.terwergreen.bugucms.service.PostService;
-import com.terwergreen.bugucms.util.Constants;
-import com.terwergreen.bugucms.exception.RestException;
-import com.terwergreen.bugucms.exception.WebException;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.terwergreen.bugucms.base.exception.WebException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author Terwer
@@ -99,11 +91,12 @@ public class PostManageController extends AdminBaseController {
      */
     private void initPage(Model model, Integer postId) throws Exception {
         try {
-            PostDTO post = null;
+            PostDTO post = new PostDTO();
             if (postId > 0) {
                 post = postService.getPostById(postId);
             }
             model.addAttribute("post", post);
+            model.addAttribute("postId", postId);
         } catch (Exception e) {
             logger.error("系统异常" + e.getLocalizedMessage(), e);
             throw new WebException(e);

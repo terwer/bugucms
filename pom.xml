@@ -5,7 +5,7 @@
 
     <groupId>com.terwergreen</groupId>
     <artifactId>bugucms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>war</packaging>
 
     <name>bugucms</name>
@@ -76,7 +76,7 @@
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.4</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/db-drivers/ojdbc6.11.2.0.4.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.11.2.0.4.jar</systemPath>
         </dependency>
         <!-- security -->
         <dependency>
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
         <!-- 测试库 -->
         <dependency>
@@ -151,19 +151,30 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.8.0</version>
+            <version>2.9.2</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-swagger-ui</artifactId>-->
-            <!--<version>2.8.0</version>-->
-        <!--</dependency>-->
-        <!-- swagger bootstrap ui -->
-        <!--<dependency>-->
-            <!--<groupId>com.github.xiaoymin</groupId>-->
-            <!--<artifactId>swagger-bootstrap-ui</artifactId>-->
-            <!--<version>1.6</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <!-- commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <!-- io utils -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
+        </dependency>
 
         <!-- Web前端开发库 -->
         <dependency>
@@ -176,16 +187,19 @@
             <artifactId>jquery</artifactId>
             <version>1.10.1</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.webjars</groupId>-->
-        <!--<artifactId>bootstrap</artifactId>-->
-        <!--<version>3.3.7</version>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>
         <finalName>ROOT</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

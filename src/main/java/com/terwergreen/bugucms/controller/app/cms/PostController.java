@@ -3,12 +3,13 @@ package com.terwergreen.bugucms.controller.app.cms;
 import com.alibaba.fastjson.JSON;
 import com.terwergreen.bugucms.base.controller.BGBaseController;
 import com.terwergreen.bugucms.dto.PostDTO;
+import com.terwergreen.bugucms.dto.PostMetaDTO;
 import com.terwergreen.bugucms.service.PostService;
 import com.terwergreen.bugucms.dto.SiteConfigDTO;
-import com.terwergreen.bugucms.core.service.CommonService;
-import com.terwergreen.bugucms.util.MarkdownUtils;
+import com.terwergreen.bugucms.base.service.CommonService;
+import com.terwergreen.bugucms.utils.MarkdownUtils;
 import com.terwergreen.bugucms.dto.SysUserDTO;
-import com.terwergreen.bugucms.exception.WebException;
+import com.terwergreen.bugucms.base.exception.WebException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,12 +39,7 @@ public class PostController extends BGBaseController {
                                  @PathVariable(name = "postId") String postId) throws Exception {
         //去除后缀
         postId = postId.replace(".html", "");
-        //文章ID和文章别名分开处理
-        if (StringUtils.isNumeric(postId)) {
-            logger.debug("文章ID为：" + postId);
-        } else {
-            logger.debug("文章别名为：" + postId);
-        }
+
         //查询分类
         //logger.debug("分类为：" + categoryId);
         ModelAndView mv = new ModelAndView();
@@ -61,7 +57,15 @@ public class PostController extends BGBaseController {
                 sysUserDTO = (SysUserDTO) currentUser;
             }
 
-            post = postService.getPostBySlug(postId);
+            //文章ID和文章别名分开处理
+            if (StringUtils.isNumeric(postId)) {
+                logger.debug("文章ID为：" + postId);
+                post = postService.getPostById(Integer.parseInt(postId));
+            } else {
+                logger.debug("文章别名为：" + postId);
+                post = postService.getPostBySlug(postId);
+            }
+
             //将Markdown转换为Html显示
             String htmlContent = MarkdownUtils.md2html(post.getPostContent());
             post.setPostContent(htmlContent);
@@ -73,6 +77,12 @@ public class PostController extends BGBaseController {
             if (post == null) {
                 logger.error("文章不存在");
                 throw new WebException("文章不存在");
+            } else {
+                PostMetaDTO viewCountPostMeta = new PostMetaDTO();
+                viewCountPostMeta.setPostId(post.getPostId());
+                viewCountPostMeta.setMetaKey("view_count");
+                viewCountPostMeta.setMetaValue(String.valueOf(post.getViewCount() + 1));
+                postService.saveOrUpdatePostMeta(viewCountPostMeta);
             }
             logger.info("获取文章成功:siteConfigDTO=" + JSON.toJSONString(siteConfigDTO) + ",post=" + post);
         } catch (Exception e) {

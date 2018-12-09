@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static com.terwergreen.bugucms.util.Constants.XMLRPC_URL;
+import static com.terwergreen.bugucms.utils.Constants.XMLRPC_URL;
 
 /**
  * @Author Terwer
@@ -54,7 +54,7 @@ public class XmlrpcServlet extends HttpServlet {
             server.setHandlerMapping(phm);
             // PropertyHandlerMapping phm = new PropertyHandlerMapping();
             // 类似于Wordpress的API
-            // phm.addHandler("MetaWeblogHandler", MetaWeblogHandelerImpl.class);
+            // phm.addHandler("metaWeblog", MetaWeblogHandelerImpl.class);
             // 支持Windows Live Writer格式的metaWeblog API
             // phm.addHandler("blogger", MetaWeblogHandelerImpl.class);
             // server.setHandlerMapping(phm);
