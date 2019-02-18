@@ -1,5 +1,8 @@
 # bugucms
-轻量级、插件化的内容管理系统
+轻量级的内容管理系统
+
+Notice !!!
+This is a standalone version,plugable version,please visit  [bugucms-plugin-container](https://github.com/terwer/bugucms-plugin-container)
 
 ![BuguCMS](logo.jpg)
 
@@ -72,4 +75,4 @@ Run as -->Maven Build -->  在弹出的框里面输入命令 ``package``，点�
 [spring-boot+spring-session集成](https://yq.aliyun.com/articles/182676)      
 [使用Spring Session实现Spring Boot水平扩展](https://zhuanlan.zhihu.com/p/31673247)     
 [SpringBoot集成Shiro并用MongoDB做Session存储](http://www.tianshangkun.com/2017/11/10/SpringBoot%E9%9B%86%E6%88%90Shiro%E5%B9%B6%E7%94%A8MongoDB%E5%81%9ASession%E5%AD%98%E5%82%A8/)       
- 
+
