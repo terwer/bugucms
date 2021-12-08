@@ -27,7 +27,7 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
         // 静态资源映射
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         registry.addResourceHandler("/public/**").addResourceLocations("classpath:/public/");
-        registry.addResourceHandler("/templates/**").addResourceLocations("classpath:/templates/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/templates/");
         registry.addResourceHandler("/admin/**").addResourceLocations("classpath:/admin/");
         // swagger-ui
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");

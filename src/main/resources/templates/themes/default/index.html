@@ -32,7 +32,7 @@
                             <thumbnail th:if="${post.thumbnails.size() > 0}" th:remove="tag">
                                 <figure class="thumbnail">
                                     <div class="load">
-                                        <a th:href="@{|/post/${post.postSlug}.html|}">
+                                        <a th:href="@{|/post/${post.postId}.html|}">
                                             <img th:src="${post.thumbnails.get(0)}" data-original="|${#request.contextPath}/themes/${siteConfigDTO.webtheme}/loading.png|" th:alt="${post.postTitle}" width="280" height="210">
                                         </a>
                                     </div>
@@ -41,7 +41,7 @@
                             </thumbnail>
                             <header class="entry-header">
                                 <h2 class="entry-title">
-                                    <a th:href="@{|/post/${post.postSlug}.html|}" rel="bookmark" th:text="${post.postTitle}">postTitle</a>
+                                    <a th:href="@{|/post/${post.postId}.html|}" rel="bookmark" th:text="${post.postTitle}">postTitle</a>
                                 </h2>
                             </header>
                             <!-- .entry-header -->
@@ -49,13 +49,13 @@
                                 <div class="archive-content" th:text="${post.postDesc}">postDesc</div>
                                 <span class="title-l"></span> <span class="entry-meta"> <span class="date">2018年03月18日&nbsp;&nbsp;</span><span
                                     class="views">阅读 48</span><span class="comment">&nbsp;&nbsp;<a
-                                    th:href="@{|/post/${post.postSlug}.html#respond|}" rel="external nofollow"><i
+                                    th:href="@{|/post/${post.postId}.html#respond|}" rel="external nofollow"><i
                                     class="fa fa-comment-o"></i> 发表评论</a></span> </span>
                                 <div class="clear"></div>
                             </div>
                             <!-- .entry-content -->
                             <span class="entry-more">
-                                <a th:href="@{|/post/${post.postSlug}.html|}" rel="bookmark">阅读全文</a>
+                                <a th:href="@{|/post/${post.postId}.html|}" rel="bookmark">阅读全文</a>
                             </span>
                         </article>
                         <!-- #post -->
