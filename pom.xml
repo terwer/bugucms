@@ -6,7 +6,7 @@
     <groupId>com.terwergreen</groupId>
     <artifactId>bugucms</artifactId>
     <version>1.0.0.RELEASE</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>bugucms</name>
     <description>light-weight,pluggable cms</description>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
+        <version>2.0.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -58,13 +58,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        <!--
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>2.3.0</version>
         </dependency>
-        -->
         <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>
@@ -84,12 +82,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <!--
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
         </dependency>
-        -->
         <!-- 测试库 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -123,7 +119,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
         <!-- 分页插件 -->
@@ -188,6 +184,20 @@
 
     <build>
         <finalName>ROOT</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--这个配置的意思是过滤上面指定属性文件中的占位符，占位符是${变量名称}这样的形式，maven会自动读取includes配置文件，然后解析其中的占位符，使用上面pom文件中定义的属性进行替换-->
+                <filtering>false</filtering>
+                <includes>
+                    <include>*.sh</include>
+                </includes>
+                <!--可用于排除某些-->
+                <excludes>
+                    <exclude>rebel.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
