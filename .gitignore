@@ -32,4 +32,5 @@ mvnw.cmd
 *.gz
 *.tmp
 bin/
-application-prd.properties      
+application-pro.properties
+.DS_Store
