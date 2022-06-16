@@ -31,7 +31,7 @@ public class BugucmsExceptionHandler implements ErrorController {
         }
     }
 
-    @Override
+    //@Override
     public String getErrorPath() {
         return "/templates/error";
     }
