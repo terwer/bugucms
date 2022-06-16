@@ -1,13 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 # 修改APP_NAME为云效上的应用名
 APP_NAME=bugucms
+# 修改APP_PORT为配置文件中的应用端口
+APP_PORT=8000
 
-
+# ===================================
+# 下面是不需要经常修改的配置
+# ===================================
 PROG_NAME=$0
 ACTION=$1
-APP_START_TIMEOUT=20    # 等待应用启动的时间
-APP_PORT=8000           # 应用端口
+APP_START_TIMEOUT=1200    # 等待应用启动的时间
 HEALTH_CHECK_URL=http://127.0.0.1:${APP_PORT}  # 应用健康检查URL
 HEALTH_CHECK_FILE_DIR=/home/admin/status   # 脚本会在这个目录下生成nginx-status文件
 APP_HOME=/home/admin/${APP_NAME} # 从package.tgz中解压出来的jar包放到这个目录下
