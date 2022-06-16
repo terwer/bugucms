@@ -8,6 +8,19 @@ This is a standalone version,plugable version,please visit  [bugucms-plugin-cont
 
 释义：BuguCMS，全称 Bugu Content Manage System，中文即布谷内容管理系统，灵感取自布谷鸟，鸣声响亮，二声一度，希望用户在使用时像耳边时刻响起布谷鸟叫声一样愉悦。
 
+# 构建
+
+```
+./mvnw clean package -DskipTests
+```
+
+# 运行
+```
+cd target
+chmod +x classes/springboot.sh
+sh classes/springboot.sh restart
+```
+
 # 亮点
 ## 插件支持，支持自定义插件和扩展
 ## 多模板引擎支持，支持主流模板引擎Thymeleaf、Freemarker、Velocity
