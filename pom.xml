@@ -72,7 +72,6 @@
             <scope>runtime</scope>
         </dependency>
         <!-- 添加oracle jdbc driver（由于版权原因，需要手动添加jar包） -->
-        <!--
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -80,7 +79,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.11.2.0.4.jar</systemPath>
         </dependency>
-        -->
         <!-- security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
