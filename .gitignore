@@ -28,5 +28,4 @@ nbdist/
 *.gz
 *.tmp
 bin/
-application-pro.properties
 .DS_Store
