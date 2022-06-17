@@ -1,0 +1,20 @@
+# docker-compose --log-level INFO up --build
+# docker-compose up -d --build
+# docker inspect bugucms-stanalone | grep IPAddres
+
+version: '3'
+services:
+  bugucms-stanalone:
+    image: terwer/bugucms-stanalone:2.0.0
+    container_name: bugucms-stanalone
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # 最好使用此设定时区，其它镜像也可以使用，也可以用"TZ=Asia/Shanghai"
+      - "TZ=CST-8"
+    stdin_open: true
+    tty: true
+    restart: "no"
