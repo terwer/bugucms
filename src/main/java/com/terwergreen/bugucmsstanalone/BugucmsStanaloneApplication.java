@@ -3,6 +3,9 @@ package com.terwergreen.bugucmsstanalone;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author terwer
+ */
 @SpringBootApplication
 public class BugucmsStanaloneApplication {
 
