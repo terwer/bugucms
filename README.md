@@ -10,22 +10,23 @@ The whole project is refactored with Spring Boot 2.7.0
 docker-compose up --build
 ```
 
-or
+or run on background
 ```
 docker-compose up -d --build
 ```
 
-## build
+## Not recommended
+~~build~~
 ```bash
 ./mvnw clean package -DskipTests
 ```
 
-## dev
+~~## dev~~
 ```bash
 ./devrun.sh
 ```
 
-## deploy 
+~~## deploy~~ 
 ```bash
 ./deploy.sh
 ```
