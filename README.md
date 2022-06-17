@@ -22,7 +22,7 @@ docker compose up -d --build
 ./mvnw clean package -DskipTests
 ```
 
-~~## dev~~
+### dev
 ```bash
 ./devrun.sh
 ```
