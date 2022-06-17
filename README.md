@@ -3,4 +3,4 @@ light-weight cms
 
 ## note
 
-All refactor with Spring Boot 2.7.0
+The whole project is refactored with Spring Boot 2.7.0

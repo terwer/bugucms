@@ -24,10 +24,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-.mvn/wrapper/
-mvnw
-mvnw.cmd
-
 *log
 *.gz
 *.tmp
