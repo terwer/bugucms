@@ -6,13 +6,14 @@ light-weight cms
 The whole project is refactored with Spring Boot 2.7.0
 
 ## dev and deploy via docker(recommeneded)
+
 ```
-docker-compose up --build
+docker compose up --build
 ```
 
 or run on background
 ```
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ## Not recommended

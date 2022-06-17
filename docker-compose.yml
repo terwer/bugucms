@@ -1,5 +1,5 @@
-# docker-compose --log-level INFO up --build
-# docker-compose up -d --build
+# docker compose up --build
+# docker compose up -d --build
 # docker inspect bugucms-stanalone | grep IPAddres
 
 version: '3'
