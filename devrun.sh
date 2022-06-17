@@ -11,5 +11,6 @@ mv ./classes/docker-compose.yml ./docker-compose.yml
 pwd
 ls -l
 
+docker compose down
 docker compose up -d --build
 docker ps
