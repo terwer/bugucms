@@ -14,7 +14,7 @@
 
 <customHead layout:fragment="customHead">
     <!-- 头部 -->
-    <link rel="stylesheet" type="text/css" th:href="@{|/themes/${siteConfigDTO.webtheme}/css/index.css|}">
+    <link rel="stylesheet" type="text/css" th:href="@{|/templates/themes/${siteConfigDTO.webtheme}/css/index.css|}">
 </customHead>
 
 <div layout:fragment="content">
@@ -33,7 +33,7 @@
                                 <figure class="thumbnail">
                                     <div class="load">
                                         <a th:href="@{|/post/${post.postId}.html|}">
-                                            <img th:src="${post.thumbnails.get(0)}" data-original="|${#request.contextPath}/themes/${siteConfigDTO.webtheme}/loading.png|" th:alt="${post.postTitle}" width="280" height="210">
+                                            <img th:src="${post.thumbnails.get(0)}" data-original="|${#request.contextPath}/templates/themes/${siteConfigDTO.webtheme}/loading.png|" th:alt="${post.postTitle}" width="280" height="210">
                                         </a>
                                     </div>
                                     <span class="cat"><a th:href="@{|/backend/java/|}">Java</a></span>
@@ -82,9 +82,9 @@
                     <div id="feed_widget">
 								<span class="feed-about">
                             <div class="about-main">
-                                <div class="about-img"> <img th:src="@{|/uploads/images/me.jpg|}"> </div>
+                                <div class="about-img"> <img th:src="@{|/public/uploads/images/me.jpg|}"> </div>
                                 <div class="about-name" th:text="${siteConfigDTO.webname}">webname</div>
-                                <div class="about-the" th:text="${siteConfigDTO.description}">description</div>
+                                <div class="about-the" th:text="${siteConfigDTO.webslogen}">webslogen</div>
                             </div>
                             <div class="clear"></div>
                         <ul>
@@ -133,5 +133,5 @@
 </div>
 
 <customFoot layout:fragment="customFoot">
-    <script type="text/javascript" th:src="@{|/themes/${siteConfigDTO.webtheme}/js/index.js|}"></script>
+    <script type="text/javascript" th:src="@{|/templates/themes/${siteConfigDTO.webtheme}/js/index.js|}"></script>
 </customFoot>

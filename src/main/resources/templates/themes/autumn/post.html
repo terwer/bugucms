@@ -138,7 +138,7 @@ http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/default.min.css
                 {{# if(d.avatar){ }}
                 <img src="{{d.avatar}}" alt="">
                 {{# } else { }}
-                <img th:src="@{|/themes/${siteConfigDTO.webtheme}/images/header.png|}" alt="header">
+                <img th:src="@{|/templates/${siteConfigDTO.webtheme}/images/header.png|}" alt="header">
                 {{# } }}
             </div>
             <div class="text">
