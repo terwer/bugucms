@@ -20,12 +20,12 @@ mvn install:install-file -Dfile=outjar/ojdbc6/ojdbc6-11.2.0.4-oracle.jar -DpomFi
 # 构建
 
 ```
-./mvnw clean package -DskipTests
+mvn clean package -DskipTests
 ```
 
 # 运行
 ```
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 # 亮点
