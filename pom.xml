@@ -185,7 +185,19 @@
     </dependencies>
 
     <build>
-        <finalName>bugucms</finalName>
+        <finalName>bugucms-standalone</finalName>
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>Dockerfile</include>
+                    <include>docker-compose.yml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
