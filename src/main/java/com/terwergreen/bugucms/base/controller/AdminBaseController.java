@@ -8,7 +8,7 @@ import com.terwergreen.bugucms.utils.Constants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,16 +44,16 @@ public class AdminBaseController {
 
             //获得当前登陆用户对应的对象
             SysUserDTO sysUserDTO = null;
-            if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof SysUserDTO) {
-                sysUserDTO = (SysUserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            } else {
+//            if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof SysUserDTO) {
+//                sysUserDTO = (SysUserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//            } else {
                 String path = request.getContextPath();
                 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 
                 String authUrl = basePath + AUTH_LOGIN_PAGE;
                 response.sendRedirect(authUrl);
-                throw new WebException(Constants.ADMIN_USER_NOT_LOGIN);
-            }
+//                throw new WebException(Constants.ADMIN_USER_NOT_LOGIN);
+//            }
 
             model.addAttribute("siteConfigDTO", siteConfigDTO);
             model.addAttribute("sysUserDTO", sysUserDTO);

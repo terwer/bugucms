@@ -30,10 +30,12 @@
         </dependency>
 
         <!-- security -->
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        -->
 
         <!-- mybatis -->
         <dependency>
@@ -93,6 +95,13 @@
             <version>11.2.0.4</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.11.2.0.4.jar</systemPath>
+        </dependency>
+
+        <!-- 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
         </dependency>
 
         <dependency>
