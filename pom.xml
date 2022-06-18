@@ -76,8 +76,6 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.11.2.0.4.jar</systemPath>
         </dependency>
         <!-- security -->
         <dependency>
@@ -95,11 +93,6 @@
             <scope>test</scope>
         </dependency>
         <!-- JSON -->
-        <!--<dependency>-->
-        <!--<groupId>net.minidev</groupId>-->
-        <!--<artifactId>json-smart</artifactId>-->
-        <!--<version>RELEASE</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
