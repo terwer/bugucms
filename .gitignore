@@ -24,13 +24,8 @@ dist/
 nbdist/
 .nb-gradle/
 
-.mvn/wrapper/
-mvnw
-mvnw.cmd
-
 *log
 *.gz
 *.tmp
 bin/
-application-pro.properties
 .DS_Store

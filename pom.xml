@@ -5,7 +5,7 @@
 
     <groupId>com.terwergreen</groupId>
     <artifactId>bugucms</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>bugucms</name>
@@ -76,8 +76,6 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.11.2.0.4.jar</systemPath>
         </dependency>
         <!-- security -->
         <dependency>
@@ -95,11 +93,6 @@
             <scope>test</scope>
         </dependency>
         <!-- JSON -->
-        <!--<dependency>-->
-        <!--<groupId>net.minidev</groupId>-->
-        <!--<artifactId>json-smart</artifactId>-->
-        <!--<version>RELEASE</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -185,11 +178,27 @@
     </dependencies>
 
     <build>
-        <finalName>bugucms</finalName>
+        <finalName>bugucms-standalone</finalName>
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>Dockerfile</include>
+                    <include>docker-compose.yml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
+            <!-- 参考：https://medium.com/@webber.cheng/spring-boot-%E6%89%93%E5%8C%85-external-jar-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-292d6e800df5 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
