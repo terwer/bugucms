@@ -1,5 +1,5 @@
 # 依赖的镜像
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM openjdk:8-jdk-alpine
 
 #镜像创建者的信息
 MAINTAINER terwer "youweics@163.com"
