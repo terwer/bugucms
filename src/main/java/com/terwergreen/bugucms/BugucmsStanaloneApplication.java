@@ -1,4 +1,4 @@
-package com.terwergreen.bugucmsstanalone;
+package com.terwergreen.bugucms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
