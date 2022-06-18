@@ -25,4 +25,5 @@ jobs:
       - name: Build with Maven
         run: |
           mvn install:install-file -Dfile=outjar/ojdbc6/ojdbc6-11.2.0.4-oracle.jar -DpomFile=outjar/ojdbc6/ojdbc6-11.2.0.4.pom
-          mvn -B clean package -DskipTests --file pom.xml
+          mvn -B test -Dmaven.test.failure.ignore=true
+          mvn surefire-report:report-only

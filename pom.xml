@@ -219,6 +219,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
             <!-- site -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -231,6 +232,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>
