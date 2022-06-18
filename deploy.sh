@@ -15,7 +15,9 @@ mv ./classes/docker-compose.yml ./docker-compose.yml
 pwd
 ls -l
 
+# 启动docker服务
 docker compose down
-docker compose up --build
+docker compose up --build -V
+docker image prune -f
 echo "check docker status=>"
 docker ps
