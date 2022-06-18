@@ -8,12 +8,10 @@ This is a standalone version,plugable version,please visit  [bugucms-plugin-cont
 
 释义：BuguCMS，全称 Bugu Content Manage System，中文即布谷内容管理系统，灵感取自布谷鸟，鸣声响亮，二声一度，希望用户在使用时像耳边时刻响起布谷鸟叫声一样愉悦。
 
-# 修改变量为开发模式
-
-修改 application.properties
+# 安装objdbc
 
 ```
-spring.profiles.active=dev
+mvn install:install-file -Dfile=outjar/ojdbc6/ojdbc6-11.2.0.4-oracle.jar -DpomFile=outjar/ojdbc6/ojdbc6-11.2.0.4.pom
 ```
 
 # 构建
@@ -24,9 +22,7 @@ spring.profiles.active=dev
 
 # 运行
 ```
-cd target
-chmod +x classes/springboot.sh
-sh classes/springboot.sh restart
+./mvnw spring-boot:run
 ```
 
 # 亮点
