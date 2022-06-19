@@ -1,37 +1,124 @@
-## Welcome to GitHub Pages
+# bugucms
+轻量级的内容管理系统
 
-You can use the [editor on GitHub](https://github.com/terwer/bugucms/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Notice !!!
+This is a standalone version,plugable version,please visit  [bugucms-plugin-container](https://github.com/terwer/bugucms-plugin-container)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![BuguCMS](https://github.com/terwer/bugucms/blob/master/logo.jpg)
 
-### Markdown
+释义：BuguCMS，全称 Bugu Content Manage System，中文即布谷内容管理系统，灵感取自布谷鸟，鸣声响亮，二声一度，希望用户在使用时像耳边时刻响起布谷鸟叫声一样愉悦。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# 安装objdbc
 
-```markdown
-Syntax highlighted code block
+参考：
+[https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html)
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+mvn install:install-file -Dfile=outjar/ojdbc6/ojdbc6-11.2.0.4-oracle.jar -DpomFile=outjar/ojdbc6/ojdbc6-11.2.0.4.pom
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+# 构建
 
-### Jekyll Themes
+```
+mvn clean package -DskipTests
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/terwer/bugucms/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# 运行
+```
+mvn spring-boot:run
+```
 
-### Support or Contact
+# 亮点
+## 插件支持，支持自定义插件和扩展
+## 多模板引擎支持，支持主流模板引擎Thymeleaf、Freemarker、Velocity
+## 多数据库支持，主持主流数据库Oracle、SQL Server、MySQL
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+# 演示
+
+[http://v1.terwergreen.com:8000](http://v1.terwergreen.com:8000)
+
+# 截图
+
+![首页](https://github.com/terwer/bugucms/blob/master/screenshorts/home.png)
+
+![后台登录](https://github.com/terwer/bugucms/blob/master/screenshorts/login.png)
+
+![后台管理](https://github.com/terwer/bugucms/blob/master/screenshorts/admin.png)
+
+# 相关技术
+Centos 7.4
+
+JDK1.8.162
+
+Spring Boot 2.0.0
+
+LogBack
+
+Thymeleaf模板引擎
+
+Maven 3.5.3 (使用阿里云Maven仓库)  
+
+Tomcat 8.5.28
+
+MySQL 5.7.19
+
+Oracle 11g
+
+MyBatis 3.4.6
+
+JSON
+
+kaptcha图片验证码组件
+
+HTML5
+
+jQuery 1.10.1
+
+bootstrap 3.3.7
+
+[LAU](https://github.com/carolkey/lying-admin/)（基于layui的后台管理模板）     
+
+# 启动
+
+## 注意
+（1）ojdbc6.jar需要手动安装，在项目的lib目录下，需要用命令```mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar -Dfile=ojdbc6.jar```安装        
+（2）Spring Boot 默认将 /webjars/** 映射到 classpath:/META-INF/resources/webjars/ ，根据访问资源的规则，在JSP页面中引入jquery.js的方法为：
+```
+<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/jquery/1.10.1/jquery.js"></script>
+```
+（3）错误页面网页与API调用分开，用``isAPI``字段标识，``String isAPI = request.getParameter("isAPI");``，网页访问不传，API访问传``Y``，API调用系统异常返回JSON，网页访问系统异常输出HTML页面。            
+
+## 本地启动   
+运行```BugucmsApplication.java```里面的```main```方法  
+
+## Tomcat启动
+（1）使用IntelliJ IDEA
+
+Build --> Build Artifacts --> 选择要打包编译的war --> 在项目target文件夹下出现新的jar包   
+或者使用eclipse
+
+Run as -->Maven Build -->  在弹出的框里面输入命令 ``package``，点击run，等待任务完成出现 ``BUILD SUCCES``，编译好的文件就会被打包好在``target``目录下
+
+（2）将war包放到tomcat的webapps目录下  
+
+## 发布流程
+（1）部署之前初始化ddl表结构（如果需要），具体请查看db目录
+
+（2）部署之前初始化数据（如果需要），具体请查看db目录
+
+（3）在服务器上clone项目，然后运行
+
+```bash
+docker compose up -d --build
+```
+
+大功告成！
+
+## 参考
+
+[玩转spring boot——负载均衡与session共享](http://www.cnblogs.com/GoodHelper/p/6263240.html)  
+[ Spring Boot项目利用Redis实现session管理](https://blog.csdn.net/skyebefreeman/article/details/73076785)     
+[spring-boot+spring-session集成](https://yq.aliyun.com/articles/182676)      
+[使用Spring Session实现Spring Boot水平扩展](https://zhuanlan.zhihu.com/p/31673247)     
+[SpringBoot集成Shiro并用MongoDB做Session存储](http://www.tianshangkun.com/2017/11/10/SpringBoot%E9%9B%86%E6%88%90Shiro%E5%B9%B6%E7%94%A8MongoDB%E5%81%9ASession%E5%AD%98%E5%82%A8/)       
+
