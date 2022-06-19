@@ -4,7 +4,7 @@
 Notice !!!
 This is a standalone version,plugable version,please visit  [bugucms-plugin-container](https://github.com/terwer/bugucms-plugin-container)
 
-![BuguCMS](https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/logo.jpg)
+![BuguCMS](https://ghproxy.com/https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/logo.jpg)
 
 释义：BuguCMS，全称 Bugu Content Manage System，中文即布谷内容管理系统，灵感取自布谷鸟，鸣声响亮，二声一度，希望用户在使用时像耳边时刻响起布谷鸟叫声一样愉悦。
 
@@ -39,11 +39,11 @@ mvn spring-boot:run
 
 # 截图
 
-![首页](https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/home.png)
+![首页](https://ghproxy.com/https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/home.png)
 
-![后台登录](https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/login.png)
+![后台登录](https://ghproxy.com/https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/login.png)
 
-![后台管理](https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/admin.png)
+![后台管理](https://ghproxy.com/https://raw.githubusercontent.com/terwer/bugucms/82078355d55db99479df464ca0fb56960f899a93/screenshorts/admin.png)
 
 # 相关技术
 Centos 7.4
